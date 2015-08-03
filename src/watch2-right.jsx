@@ -1,3 +1,4 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Container = React.createClass({
     getInitialState: function(){
         return { focused: 0 };
@@ -11,6 +12,7 @@ var Container = React.createClass({
         var self = this;
         var components = items.map(function(item,i){
             return (<Boton name={item}
+                           key={'boton'+ i}
                            index={i}
                            clickCallback={self.clickCallback}
                            selected={i==self.state.focused}/>);
@@ -19,7 +21,10 @@ var Container = React.createClass({
         return (
             <ul>
                 {components}
-                <p>El botón seleccionado es: {items[self.state.focused]}</p>
+                <ReactCSSTransitionGroup transitionName="example"
+                                         transitionAppear={true}>
+                    <p>{"El botón seleccionado es: " + items[self.state.focused]}</p>
+                </ReactCSSTransitionGroup>
             </ul>);
     }
 });

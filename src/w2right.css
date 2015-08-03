@@ -25,8 +25,7 @@ ul li{
     cursor:pointer;
     background-color:#eee;
     color:#7B8585;
-    
-    transition:0.3s;
+    transition: all 0.3s; 
 }
 
 ul li:hover{
@@ -37,8 +36,27 @@ ul li.focused{
     color:#fff;
     background-color:#41c7c2;
 }
+/* Aparicion: */ 
+.example-appear{
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.example-appear-active{
+    opacity: 1;
+}
+/* */
 
 p{
     padding-top:15px;
     font-size:12px;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
 }
